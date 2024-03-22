@@ -58,7 +58,7 @@
 <script>
     const answer = "CRANE"; //todo make this random word
     const board = document.getElementById('board');
-    const textBox = document.querySelector('button');
+    const textBox = document.querySelector('input');
     const submitButton = document.querySelector('button');
     const gameOverMessage = document.getElementById('game-over')
 
@@ -67,9 +67,9 @@
     submitButton.addEventListener('click', function(e){
         let guess = textBox.value;
         if (guess.length !== 5){
-            return //dont accept words that arent 5 letters long
+            return //don't accept words that aren't 5 letters long
         }
-        //todo clear the textbox when you hit submit
+        //todo clear the text box when you hit submit
 
         //render guess to the board
         writeGuess(guess) //todo create this function
@@ -111,7 +111,7 @@
             } else if (matchArray[i] === 1){ //in word, wrong spot
                 column.classList.add('in-word');
             } else {
-                column.classList.add('incorrect'): //no match
+                column.classList.add('incorrect'); //no match
             }
         }
     }
@@ -124,10 +124,32 @@
             let letter = answer[i].toUpperCase();
             answerAsArray.push(letter);
         }
-        //todo find the exact matches first
 
-        //todo find in-word matches and add misses
+        //find exact matches
+        for (let i=0; i < guess.length; i++){
+            let letter = guess[i]
+            if (letter === answer[i]){
+                answerAsArray[i] = null; //remove letter to prevent matching it as yellow, too
+                matchArray[i] = 2; //indicate we found a match
+            }
+        }
 
+        //find in-word matches and misses
+        for (let i = 0; i < guess.length; i++) {
+            let letter = guess[i];
+            let index = answerAsArray.indexOf(letter);
+
+            //if letter not in remaining letters, move onto the next letter
+            if (index === -1) {
+                continue
+            }
+
+            //remove letter to prevent matching in other positions
+            answerAsArray[index] = null;
+            //mark it yellow as it is in the word but not in the correct spot
+            matchArray[i] = 1;
+        }
+        return matchArray
     }
 </script>
 </html>
