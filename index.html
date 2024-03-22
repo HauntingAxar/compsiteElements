@@ -48,7 +48,7 @@
                 </tbody>
             </table>
             <div class="input-container">
-                <input type="text" maxlength="5" minlength="5">
+                <input onclick="randomizeFunction()" type="text" maxlength="5" minlength="5">
                 <button>Enter!</button>
             </div>
             <p id="game-over"></p>
@@ -66,6 +66,7 @@
 
     submitButton.addEventListener('click', function(e){
         let guess = textBox.value;
+        textBox.value = " ";
         if (guess.length !== 5){
             return //don't accept words that aren't 5 letters long
         }
@@ -97,7 +98,7 @@
         //built our match array so we easily see what matches
         let matchArray = buildMatchArray(guess) //todo create function that turns words into arrays
 
-        //identify the current tr tag
+        //identify the current "tr" tag
         let currentGuessRow = board.children[currentGuessNumber];
         //identify the columns for each letter in that row
         let columns = currentGuessRow.children
@@ -150,6 +151,13 @@
             matchArray[i] = 1;
         }
         return matchArray
+    }
+    const myList = ["CRANE", "NYMPH", "FLAME", "SKATE", "SMILE"];
+
+    randomizeFunction()
+
+    function randomizeFunction() {
+        document.getElementById("randomWord").innerHTML = myList[Math.floor(Math.random() * myList.length)]
     }
 </script>
 </html>
