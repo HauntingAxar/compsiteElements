@@ -54,9 +54,13 @@
             <p id="game-over"></p>
         </div>
     </div>
+
 </body>
 <script>
-    const answer = "CRANE"; //todo make this random word
+    const myList = ["CRANE", "NYMPH", "FLAME", "SKATE", "SMILE", "WRITE", "THINK", "MAKER", "STONE", "PRICE", "KNOWN", "ROOMY", "ABYSS", "ADMIN", "BASED", "ZONED"];
+
+    let answer = randomizeFunction();
+
     const board = document.getElementById('board');
     const textBox = document.querySelector('input');
     const submitButton = document.querySelector('button');
@@ -66,11 +70,10 @@
 
     submitButton.addEventListener('click', function(e){
         let guess = textBox.value;
-        textBox.value = " ";
+        textBox.value = "";
         if (guess.length !== 5){
             return //don't accept words that aren't 5 letters long
         }
-        //todo clear the text box when you hit submit
 
         //render guess to the board
         writeGuess(guess) //todo create this function
@@ -96,7 +99,7 @@
 
     function writeGuess(guess){
         //built our match array so we easily see what matches
-        let matchArray = buildMatchArray(guess) //todo create function that turns words into arrays
+        let matchArray = buildMatchArray(guess)
 
         //identify the current "tr" tag
         let currentGuessRow = board.children[currentGuessNumber];
@@ -152,12 +155,9 @@
         }
         return matchArray
     }
-    const myList = ["CRANE", "NYMPH", "FLAME", "SKATE", "SMILE"];
-
-    randomizeFunction()
 
     function randomizeFunction() {
-        document.getElementById("randomWord").innerHTML = myList[Math.floor(Math.random() * myList.length)]
+        return myList[Math.floor(Math.random() * myList.length)]
     }
 </script>
 </html>
