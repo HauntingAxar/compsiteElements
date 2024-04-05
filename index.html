@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="style.css" rel="stylesheet">
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -50,7 +55,7 @@
             <div class="input-container">
                 <input onclick="randomizeFunction()" type="text" maxlength="5" minlength="5">
                 <button>Enter!</button>
-                <button>Reset</button>
+                <button id="resetButton">Reset</button>
             </div>
             <p id="game-over"></p>
         </div>
@@ -67,6 +72,7 @@
     const submitButton = document.querySelector('button');
     const gameOverMessage = document.getElementById('game-over')
     const ignoreKeys = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "@", "!", "#", "$", "%", "^", "&", "*", "(", ")", "<", ">", ",", ".", "?", "/", "'", ":", ";", "-", "_", "=", "+"]
+    const reset = document.getElementById('resetButton');
 
     let currentGuessNumber = 0
 
@@ -103,16 +109,16 @@
         //check for win
         if (guess.toUpperCase() === answer.toUpperCase()){
             gameOverMessage.textContent = 'You won!!!';
-            submitButton.remove();
-            textBox.remove();
+            submitButton.classList.add('hidden');
+            textBox.classList.add('hidden');
             return
         }
 
         //Check for loss
         if (currentGuessNumber >=board.children.length) {
             gameOverMessage.textContent = `You lost :( The word was ${answer}.`;
-            submitButton.remove();
-            textBox.remove();
+            submitButton.classList.add('hidden');
+            textBox.classList.add('hidden');
             return
         }
     }
@@ -158,8 +164,6 @@
             }
         }
 
-
-
         //find in-word matches and misses
         for (let i = 0; i < guess.length; i++) {
             let letter = guess[i];
@@ -180,6 +184,17 @@
 
     function randomizeFunction() {
         return myList[Math.floor(Math.random() * myList.length)];
+    }
+
+    reset.addEventListener('click', resetBoard)
+    function resetBoard() {
+        currentGuessNumber = 0;
+        board.innerHTML = "<tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr>"
+        textBox.classList.remove('hidden');
+        submitButton.classList.remove('hidden');
+        answer = randomizeFunction();
+        gameOverMessage.textContent = '';
+        textBox.value = '';
     }
 </script>
 </html>
