@@ -64,10 +64,13 @@ body, .container, .content {
     color: white;
     margin: 2px;
 }
+.back td {
+    width: auto;
+}
 .keyboard td {
     border: solid #3a3a3c;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 50px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -81,6 +84,12 @@ body, .container, .content {
     color: white;
     margin: 1px;
 }
+.keyboard tr {
+    justify-content: center;
+    display: flex;
+    horiz-align: center;
+}
+
 
 .input.container {
     margin-top: 64px;
@@ -109,7 +118,6 @@ button {
     background: #2a2a2c;
     color: #3a3a3c;
 }
-
 
 p {
     font-size: 32px;
