@@ -47,7 +47,7 @@ body, .container, .content {
     height: 100vh;
 }
 
-td {
+.board td {
     border: solid #3a3a3c;
     width: 58px;
     height: 58px;
@@ -63,6 +63,23 @@ td {
     user-select: none;
     color: white;
     margin: 2px;
+}
+.keyboard td {
+    border: solid #3a3a3c;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.15rem;
+    line-height: 2rem;
+    font-weight: bold;
+    vertical-align: middle;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    user-select: none;
+    color: white;
+    margin: 1px;
 }
 
 .input.container {
@@ -88,6 +105,11 @@ button {
 .incorrect {
     background: #3a3a3c;
 }
+.usedLetter{
+    background: #2a2a2c;
+    color: #3a3a3c;
+}
+
 
 p {
     font-size: 32px;
