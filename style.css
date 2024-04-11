@@ -64,8 +64,12 @@ body, .container, .content {
     color: white;
     margin: 2px;
 }
-.back td {
-    width: auto;
+
+#enterButtonKeyboard{
+    width: 80px;
+}
+#back{
+    width: 60px;
 }
 .keyboard td {
     border: solid #3a3a3c;
@@ -115,11 +119,15 @@ button {
     background: #3a3a3c;
 }
 .usedLetter{
-    background: #2a2a2c;
-    color: #3a3a3c;
+    background: #75302b;
+    color: #000000;
+
 }
 
 p {
     font-size: 32px;
     color:white;
+}
+.hidden{
+    display: none;
 }
