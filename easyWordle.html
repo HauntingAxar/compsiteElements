@@ -223,12 +223,12 @@
             let index = answerAsArray.indexOf(letter);
 
             //if letter not in remaining letters, move onto the next letter
-            if (index === -1) {
+            if (easyWordle === -1) {
                 continue
             }
 
             //remove letter to prevent matching in other positions
-            answerAsArray[index] = null;
+            answerAsArray[easyWordle] = null;
             //mark it yellow as it is in the word but not in the correct spot
             matchArray[i] = 1;
         }
