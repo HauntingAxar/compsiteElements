@@ -9,54 +9,54 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="content">
-            <table>
-                <tbody id="board" class="board">
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                </tbody>
-            </table>
-            <div class="input-container">
-                <input onclick="randomizeFunction()" class="textBox" type="text" maxlength="5" minlength="5" disabled>
-                <button id="enter">Enter!</button>
-                <button id="resetButton">Reset</button>
-            </div>
-            <p id="game-over"></p>
-            <table>
+<div class="container">
+    <div class="content">
+        <table>
+            <tbody id="board" class="board">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="input-container">
+            <input onclick="randomizeFunction()" class="textBox" type="text" maxlength="5" minlength="5" disabled>
+            <button id="enter">Enter!</button>
+            <button id="resetButton">Reset</button>
+        </div>
+        <p id="game-over"></p>
+        <table>
             <tbody id="keyboard" class="keyboard">
             <tr>
                 <td id="q">Q</td>
@@ -93,8 +93,8 @@
                 <td id="enterButtonKeyboard">Enter</td>
             </tr>
             </tbody></table>
-        </div>
     </div>
+</div>
 
 </body>
 <script>
@@ -124,7 +124,7 @@
             textBox.value = textBox.value.substring(0, textBox.value.length - 1);
         }
         else if(evt.key.length > 1 || ignoreKeys.includes(evt.key)) {
-                return
+            return
         } else if (isLetter(evt.key) && textBox.value.length !== 5) {
             textBox.value += evt.key
         }
@@ -223,12 +223,12 @@
             let index = answerAsArray.indexOf(letter);
 
             //if letter not in remaining letters, move onto the next letter
-            if (easyWordle === -1) {
+            if (index === -1) {
                 continue
             }
 
             //remove letter to prevent matching in other positions
-            answerAsArray[easyWordle] = null;
+            answerAsArray[index] = null;
             //mark it yellow as it is in the word but not in the correct spot
             matchArray[i] = 1;
         }
