@@ -1,10 +1,32 @@
 .container {
     display: flex;
-    width: 10000px;
-    gap: 225px;
+    width: 100%;
+    gap: 10vw;
     justify-items: center;
     align-content: center;
+    flex-wrap: wrap;
+}
+.level1{
+    background-color: #D86EAE;
+    border-radius: 6px;
+    color: #911E64;
+}
+.level2{
+    background-color: #FFCEA2;
+    border-radius: 6px;
+    color: #B87D26;
+}
+.level3{
+    background-color: #6992bf;
+    border-radius: 6px;
+    color: #204B78;
+}
+.level4{
+    background-color: #CFF47C;
+    border-radius: 6px;
+    color: #82AC23;
 }
 a {
     display:block;
+    color: #590036;
 }
