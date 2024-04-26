@@ -1,7 +1,7 @@
 .container {
     display: flex;
-    width: 900px;
-    gap: 20px;
+    width: 10000px;
+    gap: 225px;
     justify-items: center;
     align-content: center;
 }
