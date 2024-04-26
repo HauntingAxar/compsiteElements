@@ -5,11 +5,12 @@
     justify-items: center;
     align-content: center;
     flex-wrap: wrap;
+    background: #120730;
 }
 .level1{
-    background-color: #D86EAE;
+    background-color: #CFF47C;
     border-radius: 6px;
-    color: #911E64;
+    color: #82AC23;
 }
 .level2{
     background-color: #FFCEA2;
@@ -17,9 +18,9 @@
     color: #B87D26;
 }
 .level3{
-    background-color: #6992bf;
+    background-color: #FF8282;
     border-radius: 6px;
-    color: #204B78;
+    color: #FF0000;
 }
 .level4{
     background-color: #CFF47C;
@@ -30,3 +31,14 @@ a {
     display:block;
     color: #590036;
 }
+body {
+    background: #120730;
+}
+
+/* Green (light): #CFF47C
+    Green (dark): #82AC23
+    Pink (light): #D86EAE
+    Pink (dark): #911E64
+    Blue (light): #6992bf
+    Blue (dark): #204B78
+ */
