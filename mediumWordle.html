@@ -11,42 +11,43 @@
 <body>
 <div class="container">
     <div class="content">
+        <h1 style="color:white">Medium Wordle</h1>
         <table>
             <tbody id="board" class="board">
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
+                <td style="border-color:#FFCEA2"></td>
             </tr>
             </tbody>
         </table>
@@ -59,38 +60,38 @@
         <table>
             <tbody id="keyboard" class="keyboard">
             <tr>
-                <td id="q">Q</td>
-                <td id="w">W</td>
-                <td id="e">E</td>
-                <td id="r">R</td>
-                <td id="t">T</td>
-                <td id="y">Y</td>
-                <td id="u">U</td>
-                <td id="i">I</td>
-                <td id="o">O</td>
-                <td id="p">P</td>
+                <td id="q" style="border-color:#FFCEA2">Q</td>
+                <td id="w" style="border-color:#FFCEA2">W</td>
+                <td id="e" style="border-color:#FFCEA2">E</td>
+                <td id="r" style="border-color:#FFCEA2">R</td>
+                <td id="t" style="border-color:#FFCEA2">T</td>
+                <td id="y" style="border-color:#FFCEA2">Y</td>
+                <td id="u" style="border-color:#FFCEA2">U</td>
+                <td id="i" style="border-color:#FFCEA2">I</td>
+                <td id="o" style="border-color:#FFCEA2">O</td>
+                <td id="p" style="border-color:#FFCEA2">P</td>
             </tr>
             <tr>
-                <td id="a">A</td>
-                <td id="s">S</td>
-                <td id="d">D</td>
-                <td id="f">F</td>
-                <td id="g">G</td>
-                <td id="h">H</td>
-                <td id="j">J</td>
-                <td id="k">K</td>
-                <td id="l">L</td>
+                <td id="a" style="border-color:#FFCEA2">A</td>
+                <td id="s" style="border-color:#FFCEA2">S</td>
+                <td id="d" style="border-color:#FFCEA2">D</td>
+                <td id="f" style="border-color:#FFCEA2">F</td>
+                <td id="g" style="border-color:#FFCEA2">G</td>
+                <td id="h" style="border-color:#FFCEA2">H</td>
+                <td id="j" style="border-color:#FFCEA2">J</td>
+                <td id="k" style="border-color:#FFCEA2">K</td>
+                <td id="l" style="border-color:#FFCEA2">L</td>
             </tr>
             <tr>
-                <td id="back">←</td>
-                <td id="z">Z</td>
-                <td id="x">X</td>
-                <td id="c">C</td>
-                <td id="v">V</td>
-                <td id="b">B</td>
-                <td id="n">N</td>
-                <td id="m">M</td>
-                <td id="enterButtonKeyboard">Enter</td>
+                <td id="back" style="border-color:#FFCEA2">←</td>
+                <td id="z" style="border-color:#FFCEA2">Z</td>
+                <td id="x" style="border-color:#FFCEA2">X</td>
+                <td id="c" style="border-color:#FFCEA2">C</td>
+                <td id="v" style="border-color:#FFCEA2">V</td>
+                <td id="b" style="border-color:#FFCEA2">B</td>
+                <td id="n" style="border-color:#FFCEA2">N</td>
+                <td id="m" style="border-color:#FFCEA2">M</td>
+                <td id="enterButtonKeyboard" style="border-color:#FFCEA2">Enter</td>
             </tr>
             </tbody></table>
     </div>
@@ -242,7 +243,24 @@
     reset.addEventListener('click', resetBoard)
     function resetBoard() {
         currentGuessNumber = 0;
-        board.innerHTML = "<tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr>"
+
+        //Clear the board
+        board.innerHTML = ""
+
+        //Add the <tr> tags
+        for(let i=0; i < 5; i++) {
+            board.appendChild(document.createElement('tr'))
+        }
+
+        //Add 5 <td>s for EACH <tr> tag
+        for (let tr of board.children){
+            for(let i=0; i < 5; i++) {
+                let td = document.createElement('td')
+                td.style = "border-color:#FFCEA2"
+                tr.appendChild(td);
+
+            }
+        }
         textBox.classList.remove('hidden');
         submitButton.classList.remove('hidden');
         answer = randomizeFunction();
