@@ -5,7 +5,6 @@
     justify-items: center;
     align-content: center;
     flex-wrap: wrap;
-    background: #120730;
 }
 .level1{
     background-color: #CFF47C;
@@ -35,10 +34,6 @@ body {
     background: #120730;
 }
 
-/* Green (light): #CFF47C
-    Green (dark): #82AC23
-    Pink (light): #D86EAE
-    Pink (dark): #911E64
-    Blue (light): #6992bf
-    Blue (dark): #204B78
- */
+body, .container, .content {
+    background: #212124;
+}
