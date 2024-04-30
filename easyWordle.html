@@ -36,25 +36,25 @@
                 <td style="border-color:#CFF47C"></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td style="border-color:#CFF47C"></td>
+                <td style="border-color:#CFF47C"></td>
+                <td style="border-color:#CFF47C"></td>
+                <td style="border-color:#CFF47C"></td>
+                <td style="border-color:#CFF47C"></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td style="border-color:#CFF47C"></td>
+                <td style="border-color:#CFF47C"></td>
+                <td style="border-color:#CFF47C"></td>
+                <td style="border-color:#CFF47C"></td>
+                <td style="border-color:#CFF47C"></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td style="border-color:#CFF47C"></td>
+                <td style="border-color:#CFF47C"></td>
+                <td style="border-color:#CFF47C"></td>
+                <td style="border-color:#CFF47C"></td>
+                <td style="border-color:#CFF47C"></td>
             </tr>
             </tbody>
         </table>
@@ -67,38 +67,38 @@
         <table>
             <tbody id="keyboard" class="keyboard">
             <tr>
-                <td id="q">Q</td>
-                <td id="w">W</td>
-                <td id="e">E</td>
-                <td id="r">R</td>
-                <td id="t">T</td>
-                <td id="y">Y</td>
-                <td id="u">U</td>
-                <td id="i">I</td>
-                <td id="o">O</td>
-                <td id="p">P</td>
+                <td id="q" style="border-color:#CFF47C">Q</td>
+                <td id="w" style="border-color:#CFF47C">W</td>
+                <td id="e" style="border-color:#CFF47C">E</td>
+                <td id="r" style="border-color:#CFF47C">R</td>
+                <td id="t" style="border-color:#CFF47C">T</td>
+                <td id="y" style="border-color:#CFF47C">Y</td>
+                <td id="u" style="border-color:#CFF47C">U</td>
+                <td id="i" style="border-color:#CFF47C">I</td>
+                <td id="o" style="border-color:#CFF47C">O</td>
+                <td id="p" style="border-color:#CFF47C">P</td>
             </tr>
             <tr>
-                <td id="a">A</td>
-                <td id="s">S</td>
-                <td id="d">D</td>
-                <td id="f">F</td>
-                <td id="g">G</td>
-                <td id="h">H</td>
-                <td id="j">J</td>
-                <td id="k">K</td>
-                <td id="l">L</td>
+                <td id="a" style="border-color:#CFF47C">A</td>
+                <td id="s" style="border-color:#CFF47C">S</td>
+                <td id="d" style="border-color:#CFF47C">D</td>
+                <td id="f" style="border-color:#CFF47C">F</td>
+                <td id="g" style="border-color:#CFF47C">G</td>
+                <td id="h" style="border-color:#CFF47C">H</td>
+                <td id="j" style="border-color:#CFF47C">J</td>
+                <td id="k" style="border-color:#CFF47C">K</td>
+                <td id="l" style="border-color:#CFF47C">L</td>
             </tr>
             <tr>
-                <td id="back">←</td>
-                <td id="z">Z</td>
-                <td id="x">X</td>
-                <td id="c">C</td>
-                <td id="v">V</td>
-                <td id="b">B</td>
-                <td id="n">N</td>
-                <td id="m">M</td>
-                <td id="enterButtonKeyboard">Enter</td>
+                <td id="back" style="border-color:#CFF47C">←</td>
+                <td id="z" style="border-color:#CFF47C">Z</td>
+                <td id="x" style="border-color:#CFF47C">X</td>
+                <td id="c" style="border-color:#CFF47C">C</td>
+                <td id="v" style="border-color:#CFF47C">V</td>
+                <td id="b" style="border-color:#CFF47C">B</td>
+                <td id="n" style="border-color:#CFF47C">N</td>
+                <td id="m" style="border-color:#CFF47C">M</td>
+                <td id="enterButtonKeyboard" style="border-color:#CFF47C">Enter</td>
             </tr>
             </tbody></table>
     </div>
@@ -250,7 +250,25 @@
     reset.addEventListener('click', resetBoard)
     function resetBoard() {
         currentGuessNumber = 0;
-        board.innerHTML = "<tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr>"
+        //board.innerHTML = "<tr style=\"border-color:#CFF47C\"><td></td><td></td><td></td><td></td><td></td></tr style=\"border-color:#CFF47C\"><tr><td></td><td></td><td></td><td></td><td></td></tr><tr style=\"border-color:#CFF47C\"><td></td><td></td><td></td><td></td><td></td></tr><tr style=\"border-color:#CFF47C\"><td></td><td></td><td></td><td></td><td></td></tr><tr style=\"border-color:#CFF47C\"><td></td><td></td><td></td><td></td><td></td></tr><tr style=\"border-color:#CFF47C\"><td></td><td></td><td></td><td></td><td></td></tr>"
+
+        //Clear the board
+        board.innerHTML = ""
+
+        //Add the <tr> tags
+        for(let i=0; i < 6; i++) {
+            board.appendChild(document.createElement('tr'))
+        }
+
+        //Add 5 <td>s for EACH <tr> tag
+        for (let tr of board.children){
+            for(let i=0; i < 5; i++) {
+                let td = document.createElement('td')
+                td.style = "border-color:#CFF47C"
+                tr.appendChild(td);
+
+            }
+        }
         textBox.classList.remove('hidden');
         submitButton.classList.remove('hidden');
         answer = randomizeFunction();
