@@ -26,6 +26,16 @@
     border-radius: 6px;
     color: #5f001e;
 }
+
+.cookieGame{
+    background-color: #CD1150;
+    border-radius: 6px;
+    color: #5f001e;
+    display:block;
+    width: 200px;
+    align-content:center;
+}
+
 a {
     display:block;
     color: #590036;
@@ -36,4 +46,10 @@ body {
 
 body, .container, .content {
     background: #212124;
+}
+.space { margin-top: 250px; }
+
+.forFlex {
+    display:flex;
+    justify-content: center;
 }

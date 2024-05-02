@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Off-Brand Cookie Clicker :p</title>
+  <link rel="stylesheet" href="cookieStyle.css">
+</head>
+<body>
+<div class="container">
+  <div class="content">
+    <div class="column">
+      <h3>---------------Shop Area---------------</h3>
+      <p>By buying from the shop you multiply your cookies by 2x for every click! Sometimes clicking over and over gets a bit annoying, use the 2x button to buy twice in one click!
+        <br>
+        <br>
+        &#9888; ! Hint: Since the score goes up everytime, to buy 2x the first time you need 30 cookies ! &#9888;
+        <br>
+        &#9888; ! Hint: For 10x the starting number of cookies needed is 550 ! &#9888;</p>
+      <button class="button" id="buy" name="buy">Shop: 10</button>
+      <button class="button" id="x2" name="x2">Buy 2x</button>
+      <button class="button" id="x10" name="x10">Buy 10x</button>
+      <div style="line-height:150%;">
+        <br>
+        <br>
+      </div>
+      <br>
+      <button class="button" id="exClicker">Extra Clicker: 10</button>
+      <p id="message"></p>
+    </div>
+
+    <style>
+      .vl {
+        border-left: 6px solid saddlebrown;
+        height: 469.0px;
+      }
+    </style>
+
+    <div class="vl"></div>
+
+    <h1>Cookie Clicker</h1>
+    <div class="rowButton">
+      <div>
+        <button id="point" class="cookieButton" >
+          <img src="https://www.freeiconspng.com/thumbs/cookie/cookie-png-transparent-images-background-23.png" height="200" width="200">
+        </button>
+      </div>
+    </div>
+    <div>
+      <p id="scoreUpdated">Cookies: 0</p>
+      <p id="perClick">Cookies Per Click: 1</p>
+    </div>
+    <p id="rebirthLabel" class="hidden">Rebirth Bonus: </p>
+    <button class="button"  id="clear" name="clear">Clear</button>
+    <button class="button"  id="rebirth" name="rebirth">Rebirth (Starts at 100,000 cookies)</button>
+  </div>
+</div>
+<script>
+  let score = 0;
+  let addition = 1;
+  let cps = 0;
+  let neededAuto = 10;
+  const cookie = document.getElementById('point');
+  const scoreUpdated = document.getElementById('scoreUpdated');
+  const clearButton = document.getElementById('clear');
+  let pointButton = document.querySelector('img');
+  const buyButton = document.getElementById('buy');
+  const cpsButton = document.getElementById('exClicker');
+  let neededCookies = 10;
+  const twoBuy = document.getElementById('x2');
+  const tenBuy = document.getElementById('x10')
+  const addMessage = document.getElementById('message');
+  const perClick = document.getElementById('perClick');
+  let rebirthBonus = 0;
+  let rebirthCookies = 100000;
+  const rebirthButton = document.getElementById('rebirth');
+  const rebirthLabel = document.getElementById('rebirthLabel')
+
+  cookie.addEventListener('click', function(e){
+    addCookie();
+    if(score >= 10){
+      pointButton.src='https://cdn.pixabay.com/photo/2022/04/02/12/14/cookies-7106888_1280.png'
+    }
+    if(score >= 20){
+      pointButton.src='https://clipart-library.com/images_k/transparent-cookies/transparent-cookies-14.png'
+    }
+    if(score >= 30){
+      pointButton.src='https://png.pngtree.com/png-clipart/20230819/original/pngtree-vector-set-of-chocolate-chip-cookies-isolated-on-white-background-picture-image_8067232.png'
+    }
+    if(score >= 100){
+      pointButton.src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d2a01df0-0dd9-47e7-9248-cfb31c99e3d8/defyml3-f365e5f9-6710-4173-ab56-4d1594d8d0d4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QyYTAxZGYwLTBkZDktNDdlNy05MjQ4LWNmYjMxYzk5ZTNkOFwvZGVmeW1sMy1mMzY1ZTVmOS02NzEwLTQxNzMtYWI1Ni00ZDE1OTRkOGQwZDQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.P5sJBEa0CEzP_P-gn9AByNgdL8Hutf9MKzm5Xx3_o-g'
+    }
+    if(score >= 200){
+      pointButton.src='https://static.vecteezy.com/system/resources/thumbnails/009/695/363/small/watercolor-basket-of-cookies-png.png'
+    }
+    if(score >= 300){
+      pointButton.src='https://static.vecteezy.com/system/resources/previews/009/695/369/original/watercolor-basket-of-cookies-png.png'
+    }
+  });
+
+  function addCookie(){
+    score = score + addition + rebirthBonus;
+    scoreUpdated.textContent = `Cookies: ${score}`;
+    simpleMessages();
+  }
+
+  clearButton.addEventListener('click', function(e){
+    reset();
+    rebirthBonus = 0;
+    rebirthLabel.classList.add('hidden')
+  });
+
+  buyButton.addEventListener('click', function(e){
+    buyMore(1);
+  });
+
+  twoBuy.addEventListener('click', function(e){
+    buyMore(2);
+  });
+
+  tenBuy.addEventListener('click', function(e){
+    buyMore(10);
+  });
+
+  cpsButton.addEventListener('click', function(e){
+    autoShop();
+  });
+  setInterval(autoAdd, 1000);
+
+  function autoAdd(){
+    score += cps;
+    scoreUpdated.textContent = `Cookies: ${score}`;
+  }
+  function autoShop(){
+    if (score >= neededAuto){
+      addAuto();
+    }
+  }
+
+  function addAuto(){
+    score -= neededAuto;
+    neededAuto += 2;
+    cpsButton.textContent = `Extra Clicker: ${neededAuto}`;
+    cps++;
+
+  }
+
+  function shop(){
+    if (score >= neededCookies){
+      purchaseUpgrade();
+    }
+  }
+  function purchaseUpgrade(){
+    addition *= 2;
+    score -= neededCookies;
+    neededCookies += 10;
+    updateScores();
+  }
+  function buyMore(times){
+    for(let i = 0; i < times; i++){
+      shop();
+    }
+  }
+  function simpleMessages() {
+    if (score >= 10){
+      addMessage.textContent = `Your family starts trying your cookies.`
+    }
+    if (score >= 20){
+      addMessage.textContent = `Keep going! Neighbors are starting to love the cookies!`
+    }
+    if (score >= 30){
+      addMessage.textContent = `You've started to branch out to different flavors!`
+    }
+    if (score >= 100){
+      addMessage.textContent = `You have your own home business!`
+    }
+    if (score >= 200){
+      addMessage.textContent = `The business is growing well!`
+    }
+    if (score >= 300){
+      addMessage.textContent = `You're now able to have your friends help with the business as well as pay them!`
+    }
+  }
+  function updateScores(){
+    scoreUpdated.textContent = `Cookies: ${score}`;
+    buyButton.textContent = `Shop: ${neededCookies}`;
+    perClick.textContent = `Cookies Per Click: ${addition}`;
+  }
+  function rebirth(){
+    rebirthBonus += 1;
+
+    rebirthLabel.classList.remove('hidden')
+    rebirthLabel.textContent = `Rebirth Bonus: ${rebirthBonus}`
+    reset()
+    perClick.textContent = `Cookies Per Click: ${addition+ rebirthBonus}`;
+  }
+  function rebirthCheck(){
+    if (score >= rebirthCookies){
+      rebirth();
+    }
+  }
+
+
+  rebirthButton.addEventListener('click', rebirthCheck)
+
+  function reset(){
+    score = 0;
+    scoreUpdated.textContent = `Cookies: 0`;
+    addition = 1;
+    neededCookies = 10;
+    cps = 0;
+    buyButton.textContent = `Shop: ${neededCookies}`;
+    perClick.textContent = `Cookies Per Click: 1`;
+
+    pointButton.src='https://images.vexels.com/media/users/3/151625/isolated/preview/0484184d72076b38f8b68869d565ab1b-chocolate-chip-cookie-icon.png'
+    addMessage.textContent = " "
+    neededAuto = 10;
+    cpsButton.textContent = `Extra Clicker: ${neededAuto}`;
+  }
+</script>
+</body>
+</html>
