@@ -28,11 +28,11 @@
 }
 
 .cookieGame{
-    background-color: #CD1150;
+    background-color: #705348;
     border-radius: 6px;
-    color: #5f001e;
     display:block;
     width: 200px;
+    height: 50px;
     align-content:center;
 }
 
